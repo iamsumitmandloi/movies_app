@@ -6,6 +6,14 @@ A Netflix-inspired mobile movie discovery application built with Flutter, demons
 
 ✅ **Ready for Testing** - The app is fully functional.
 
+## 🔗 Quick Links
+
+| Resource | Link | Description |
+|----------|------|-------------|
+| 📱 **APK Download** | **[Google Drive APK](YOUR_GOOGLE_DRIVE_APK_LINK_HERE)** | Production release (22.9 MB) |
+| 🎥 **Demo Video** | **[Google Drive Video](YOUR_GOOGLE_DRIVE_VIDEO_LINK_HERE)** | Complete app walkthrough |
+| 📂 **Source Code** | **[GitHub Repository](https://github.com/iamsumitmandloi/movies_app)** | Full source code |
+
 ## 📱 Features
 
 - **Home Screen** - Browse trending and now playing movies
@@ -99,7 +107,21 @@ lib/
 
 ## 📄 APK Download
 
+### Local Build
 A release APK is available in the `build/app/outputs/flutter-apk/` directory after building.
+
+### Google Drive Download
+📱 **[Download APK from Google Drive](YOUR_GOOGLE_DRIVE_APK_LINK_HERE)**
+- File: `movies_app_release.apk`
+- Size: 22.9 MB
+- Version: Production Ready
+
+## 🎥 App Demo Video
+
+🎬 **[Watch App Demo Video](YOUR_GOOGLE_DRIVE_VIDEO_LINK_HERE)**
+- Complete app walkthrough
+- All features demonstrated
+- Production build showcase
 
 ## 🔑 API Configuration
 
