@@ -1,0 +1,5 @@
+# Placeholder for app logo
+# Replace this with actual logo files:
+# - logo.svg
+# - logo.png
+# - icon.png
