@@ -20,10 +20,21 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _searchController = TextEditingController();
+  final _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    // Prevent automatic focus when page loads
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.unfocus();
+    });
+  }
 
   @override
   void dispose() {
     _searchController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -31,9 +42,14 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<SearchCubit>(),
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
+      child: GestureDetector(
+        onTap: () {
+          // Dismiss keyboard when tapping outside
+          _focusNode.unfocus();
+        },
+        child: Scaffold(
+          body: SafeArea(
+            child: Column(
             children: [
               Padding(
                 padding: EdgeInsets.all(
@@ -43,6 +59,7 @@ class _SearchPageState extends State<SearchPage> {
                   builder: (context, state) {
                     return TextField(
                       controller: _searchController,
+                      focusNode: _focusNode,
                       decoration: InputDecoration(
                         hintText: 'Search movies...',
                         prefixIcon: const Icon(Icons.search),
@@ -52,6 +69,7 @@ class _SearchPageState extends State<SearchPage> {
                                 onPressed: () {
                                   _searchController.clear();
                                   context.read<SearchCubit>().clearSearch();
+                                  _focusNode.unfocus();
                                 },
                               )
                             : null,
@@ -62,6 +80,9 @@ class _SearchPageState extends State<SearchPage> {
                       ),
                       onChanged: (query) {
                         context.read<SearchCubit>().searchMovies(query);
+                      },
+                      onSubmitted: (query) {
+                        _focusNode.unfocus();
                       },
                     );
                   },

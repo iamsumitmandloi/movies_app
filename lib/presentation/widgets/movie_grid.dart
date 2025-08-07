@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/constants/breakpoints.dart';
 import '../../domain/entities/movie.dart';
@@ -55,7 +56,11 @@ class MovieGrid extends StatelessWidget {
         return MovieCard(
           movie: movie,
           showBookmarkBadge: showBookmarkBadge,
-          onTap: () => onMovieTap?.call(movie),
+          onTap: () {
+            // Dismiss keyboard when navigating to movie detail
+            SystemChannels.textInput.invokeMethod('TextInput.hide');
+            onMovieTap?.call(movie);
+          },
           onBookmarkTap: () => onBookmarkTap?.call(movie),
         );
       },

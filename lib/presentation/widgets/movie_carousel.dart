@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/constants/breakpoints.dart';
 import '../../domain/entities/movie.dart';
@@ -39,7 +40,11 @@ class MovieCarousel extends StatelessWidget {
                   : 0,
             ),
             child: GestureDetector(
-              onTap: () => onMovieTap?.call(movie),
+              onTap: () {
+                // Dismiss keyboard when navigating to movie detail
+                SystemChannels.textInput.invokeMethod('TextInput.hide');
+                onMovieTap?.call(movie);
+              },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Stack(
