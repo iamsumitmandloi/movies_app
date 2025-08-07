@@ -1,8 +1,10 @@
 class ApiConstants {
   static const String baseUrl = 'https://api.themoviedb.org/3';
   static const String imageBaseUrl = 'https://image.tmdb.org/t/p';
-  static const String apiKey =
-      '9f5fe353609a38481153bc7cd11ede86';
+  static const String apiKey = String.fromEnvironment(
+    'TMDB_API_KEY',
+    defaultValue: 'YOUR_TMDB_API_KEY_HERE',
+  );
 
   static const String trendingMovies = '/trending/movie/day';
   static const String nowPlayingMovies = '/movie/now_playing';

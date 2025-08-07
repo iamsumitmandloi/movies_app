@@ -4,7 +4,7 @@ A Netflix-inspired mobile movie discovery application built with Flutter, demons
 
 ## 🚀 App Status
 
-✅ **Ready for Testing** - The app is fully functional and production-ready
+✅ **Ready for Testing** - The app is fully functional.
 
 ## 📱 Features
 
@@ -47,17 +47,31 @@ Clean Architecture with MVVM pattern:
    cd movies_app
    ```
 
-2. **Install dependencies**
+2. **Get TMDB API Key**
+   - Visit [TMDB API](https://www.themoviedb.org/settings/api)
+   - Create an account and get your API key
+   - Note: A placeholder is set for demonstration
+
+3. **Configure API Key (Optional)**
+   ```bash
+   # Option 1: Set environment variable
+   export TMDB_API_KEY="your_actual_api_key_here"
+   
+   # Option 2: Use --dart-define flag
+   flutter run --dart-define=TMDB_API_KEY=your_actual_api_key_here
+   ```
+
+4. **Install dependencies**
    ```bash
    flutter pub get
    ```
 
-3. **Generate code**
+5. **Generate code**
    ```bash
    flutter packages pub run build_runner build
    ```
 
-4. **Run the app**
+6. **Run the app**
    ```bash
    flutter run
    ```
@@ -89,7 +103,10 @@ A release APK is available in the `build/app/outputs/flutter-apk/` directory aft
 
 ## 🔑 API Configuration
 
-The app uses TMDB (The Movie Database) API. The API key is included for demonstration purposes.
+The app uses TMDB (The Movie Database) API. For security:
+- API key is loaded from environment variables
+- A placeholder is set for demonstration purposes
+- Get your API key from: https://www.themoviedb.org/settings/api
 
 ---
 
