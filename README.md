@@ -1,4 +1,5 @@
 # Movies Database App 🎬
+I have used LLM while creating this project.
 
 A Netflix-inspired mobile movie discovery application built with Flutter, demonstrating clean architecture and modern development practices.
 
