@@ -7,7 +7,7 @@ import '../../../core/constants/api_constants.dart';
 import '../../../domain/usecases/search_movies.dart';
 import 'search_state.dart';
 
-@injectable
+@singleton
 class SearchCubit extends Cubit<SearchState> {
   final SearchMovies _searchMovies;
   Timer? _debounceTimer;
